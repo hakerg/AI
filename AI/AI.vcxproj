@@ -110,6 +110,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="NeuralNetwork.cpp" />
+    <ClCompile Include="Neuron.cpp" />
+    <ClCompile Include="Population.cpp" />
+    <ClCompile Include="SolutionFinder.cpp" />
+    <ClCompile Include="Źródło.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI.h" />
+    <ClInclude Include="NeuralNetwork.h" />
+    <ClInclude Include="Neuron.h" />
+    <ClInclude Include="Population.h" />
+    <ClInclude Include="SolutionFinder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
