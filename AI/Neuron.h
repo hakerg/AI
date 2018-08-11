@@ -4,7 +4,7 @@
 class Neuron
 {
 public:
-	float bias = 0.0f, input, output, dC_dib, dC_do, dC_dibTotal = 0.0f, df_do, df_di;
+	float bias = 0.0f, input, output, dC_dib, dC_do, dC_dibTotal = 0.0f, df_do = 1.0f, df_di;
 	std::vector<float> inputWeights, dC_dw;
 	size_t inputSize;
 	Neuron(const size_t & inputsCount = 0);

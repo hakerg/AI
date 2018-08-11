@@ -183,7 +183,6 @@ void NeuralNetwork::findBestInput(const size_t & firstInputIndex, const size_t &
 	auto& inputLayer = neurons.front();
 	auto firstIt = inputLayer.begin() + firstInputIndex;
 	auto endIt = firstIt + inputCount;
-	neurons.back().front().df_do = 1.0f;
 	for (int n = 0; n < attempts; n++)
 	{
 		calculate();
@@ -198,7 +197,18 @@ void NeuralNetwork::findBestInput(const size_t & firstInputIndex, const size_t &
 			for (Neuron& n : *it)
 			{
 				n.df_di = n.df_do * n.get_do_di();
-				for (size_t pn = 0; pn < prevLayerSize; pn++)
+				size_t loopStart, loopEnd;
+				if (it == neurons.begin() + 1)
+				{
+					loopStart = firstInputIndex;
+					loopEnd = firstInputIndex + inputCount;
+				}
+				else
+				{
+					loopStart = 0;
+					loopEnd = prevLayerSize;
+				}
+				for (size_t pn = loopStart; pn < loopEnd; pn++)
 				{
 					prevLayer[pn].df_do += n.df_di * n.inputWeights[pn];
 				}
